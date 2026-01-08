@@ -50,7 +50,7 @@ function Dashboard() {
 
                     <div className="project-info-box-options h-auto w-[50%] flex items-center justify-end gap-3">
 
-                        <button className="add-new-ticket-button border border-[rgba(0,0,250,0.700)] rounded-lg h-auto w-auto p-2 hover:border-none hover:bg-[rgba(0,0,250,0.200)] disabled:cursor-not-allowed" onClick={open_ticket_portal} disabled={projects_collection.length === 0}>Add New Ticket</button>
+                        <button className="add-new-ticket-button border border-[rgba(0,0,250,0.700)] rounded-lg h-auto w-auto p-2 hover:border-none hover:bg-[rgba(0,0,250,0.200)] disabled:cursor-not-allowed" onClick={open_ticket_portal} disabled={!selected_project_data}>Add New Ticket</button>
 
                         <select className="project-selection rounded-lg outline-none h-auto w-auto p-3 bg-[rgba(0,0,250,0.300)] cursor-pointer" value={selected_project_data ? selected_project_data.project_name : "NO PROJECT SELECTED!"} onChange={(e) => set_selected_project(e.target.value)}>
 
