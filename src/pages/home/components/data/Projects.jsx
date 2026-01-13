@@ -168,7 +168,7 @@ function Projects({ show_dashboard }) {
 
                                                         <p className="h-full w-[25%] p-1 font-bold">Project Description - </p>
 
-                                                        <p className="h-full w-[75%] p-1">{project.project_description || "N/A"}</p>
+                                                        <p className="h-full w-[75%] p-1 whitespace-pre-wrap">{project.project_description || "N/A"}</p>
 
                                                     </div>
 

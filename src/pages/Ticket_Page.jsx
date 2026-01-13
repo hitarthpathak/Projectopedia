@@ -207,7 +207,7 @@ function Ticket_Page() {
 
                                 <p className="h-full w-[20%] p-2 font-bold">Ticket Description : </p>
 
-                                <p className="h-full w-[80%] p-2">{ticket.ticket_description || "N/A"}</p>
+                                <p className="h-full w-[80%] p-2 whitespace-pre-wrap">{ticket.ticket_description || "N/A"}</p>
 
                             </div>
 
