@@ -2,7 +2,7 @@ import { useState, useContext, memo } from "react";
 import ReactDOM from "react-dom";
 import { Context_API } from "../../../../App";
 import { Show_Data_API } from "../../Home";
-import useTicket from "./useTicket";
+import useTicket from "../../../../hooks/useTicket";
 import Ticket_Portal from "../../../../portals/Ticket_Portal";
 import Ticket from "./Ticket";
 import Column from "./Column";
