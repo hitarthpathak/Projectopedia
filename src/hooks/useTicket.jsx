@@ -22,9 +22,9 @@ function useTicket(selected_project) {
     function drag_drop(new_status) {
         if (!dragged_ticket_id || !selected_project) return;
         let updated_projects = projects_collection.map((project) => {
-            if (project.project_name === selected_project) {
+            if (project.project_name == selected_project) {
                 let updated_tickets = project.project_tickets.map((ticket) => {
-                    return ticket.ticket_id === dragged_ticket_id ? { ...ticket, ticket_status: new_status } : ticket
+                    return ticket.ticket_id == dragged_ticket_id ? { ...ticket, ticket_status: new_status } : ticket
                 });
                 return { ...project, project_tickets: updated_tickets };
             }

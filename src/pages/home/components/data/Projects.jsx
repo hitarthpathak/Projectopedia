@@ -82,7 +82,7 @@ function Projects({ show_dashboard }) {
 
                 <div className="projects-list overflow-auto h-full w-full p-4 bg-[rgba(0,0,250,0.200)] flex items-start justify-start gap-4 flex-col">
 
-                    {projects_collection.length === 0 && <p className="h-auto w-full text-center">No Projects Available!</p>}
+                    {projects_collection.length == 0 && <p className="h-auto w-full text-center">No Projects Available!</p>}
 
                     {projects_collection.map((project, index) => {
 
@@ -92,7 +92,7 @@ function Projects({ show_dashboard }) {
 
                                 {
 
-                                    editing_index === index
+                                    editing_index == index
 
                                         ?
 

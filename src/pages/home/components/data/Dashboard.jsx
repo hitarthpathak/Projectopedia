@@ -17,7 +17,7 @@ function Dashboard() {
     const [query, set_query] = useState("");
     const [is_ticket_portal_open, set_is_ticket_portal_open] = useState(false);
 
-    let selected_project_data = projects_collection.find((project) => project.project_name === selected_project);
+    let selected_project_data = projects_collection.find((project) => project.project_name == selected_project);
 
     function open_ticket_portal() {
         set_is_ticket_portal_open(true);

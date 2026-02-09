@@ -34,7 +34,7 @@ function Ticket_Page() {
 
     function update_ticket() {
         let updated_projects = projects_collection.map(((project) => {
-            if (project.project_name === project_of_ticket.project_name) {
+            if (project.project_name == project_of_ticket.project_name) {
                 let updated_tickets = project.project_tickets.map((ticket) => {
                     if (ticket.ticket_id == Number(ticket_id)) {
                         return {
@@ -65,7 +65,7 @@ function Ticket_Page() {
 
     function delete_ticket() {
         let updated_projects = projects_collection.map((project) => {
-            if (project.project_name === project_of_ticket.project_name) {
+            if (project.project_name == project_of_ticket.project_name) {
                 let filtered_tickets = project.project_tickets.filter((ticket) => ticket.ticket_id != Number(ticket_id));
                 return { ...project, project_tickets: filtered_tickets };
             }

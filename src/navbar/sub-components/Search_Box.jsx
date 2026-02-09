@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 function Search_Box() {
 
     const navigate = useNavigate();
+
     const [query, set_query] = useState("");
 
     function search_tickets() {

@@ -35,7 +35,7 @@ function Home() {
         set_loading(true);
         set_data("");
         setTimeout(() => {
-            if (projects_collection.length === 0) {
+            if (projects_collection.length == 0) {
                 set_selected_project("No Project Selected!");
             }
             else if (project_name) {
