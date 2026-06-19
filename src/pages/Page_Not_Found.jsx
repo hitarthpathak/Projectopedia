@@ -4,7 +4,7 @@ function Page_Not_Found() {
 
         <div>
 
-            <h1 className="h-[80vh] w-full bg-[rgba(0,0,250,0.200)] flex items-center justify-center text-3xl">Page Not Found</h1>
+            <h1 className="page-not-found h-[80vh] w-full bg-slate-50 text-slate-900 flex items-center justify-center text-3xl">Page Not Found!</h1>
 
         </div>
 

@@ -9,7 +9,7 @@ function Dashboard_Button() {
 
         <>
 
-            <button className="dashboard-button border border-[rgba(0,0,250,0.700)] rounded-lg hover:bg-[rgba(0,0,250,0.200)] hover:border-none h-auto w-full p-4" onClick={() => show_dashboard(selected_project)}>Dashboard</button>
+            <button className="dashboard-button border border-slate-200 bg-white rounded-3xl hover:bg-sky-50 hover:border-sky-200 h-auto w-full p-4 transition" onClick={() => show_dashboard(selected_project)}>Dashboard</button>
 
         </>
 

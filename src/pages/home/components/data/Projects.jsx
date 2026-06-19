@@ -44,6 +44,10 @@ function Projects({ show_dashboard }) {
         set_editing_index(null);
     };
 
+    function cancel_edit() {
+        set_editing_index(null);
+    };
+
     function remove_project(project, index) {
         if (project.project_name == selected_project) {
             set_selected_project("No Project Selected!");
@@ -57,13 +61,13 @@ function Projects({ show_dashboard }) {
 
         <>
 
-            <div className="project-box h-full w-full flex items-center justify-start flex-col">
+            <div className="project h-full w-full flex items-center justify-start flex-col">
 
-                <div className="project-info-box h-auto w-full p-4 flex items-center justify-between">
+                <div className="project-options-box h-auto w-full bg-sky-50 border border-slate-200 rounded-3xl shadow-sm p-4 flex items-center justify-between">
 
                     <span className="text-lg font-bold">{projects_collection.length} Projects</span>
 
-                    <button className="add-new-project-button border border-[rgba(0,0,250,0.700)] rounded-lg h-auto w-auto p-2 hover:border-none hover:bg-[rgba(0,0,250,0.200)]" onClick={open_project_portal}>Add New Project</button>
+                    <button className="add-new-project-button border border-fuchsia-500 bg-fuchsia-500 text-white rounded-3xl h-auto w-auto px-4 py-2 shadow-sm hover:bg-fuchsia-600" onClick={open_project_portal}>Add New Project</button>
 
                 </div>
 
@@ -80,7 +84,7 @@ function Projects({ show_dashboard }) {
 
                 }
 
-                <div className="projects-list overflow-auto h-full w-full p-4 bg-[rgba(0,0,250,0.200)] flex items-start justify-start gap-4 flex-col">
+                <div className="projects-list-box border border-slate-200 rounded-3xl overflow-auto h-full w-full p-4 bg-slate-50 flex items-start justify-start gap-8 flex-col">
 
                     {projects_collection.length == 0 && <p className="h-auto w-full text-center">No Projects Available!</p>}
 
@@ -88,7 +92,7 @@ function Projects({ show_dashboard }) {
 
                         return (
 
-                            <div className="project-box h-auto w-full" key={project.project_id}>
+                            <div className="project-list h-auto w-full" key={project.project_id}>
 
                                 {
 
@@ -100,39 +104,39 @@ function Projects({ show_dashboard }) {
 
                                             <>
 
-                                                <div className="project rounded-lg h-auto w-full text-start p-5 bg-[rgba(0,0,250,0.200)]">
+                                                <div className="project-box border rounded-lg h-auto w-full text-start p-5 bg-slate-100">
 
-                                                    <div className="rounded-lg h-auto w-full p-1 flex items-center justify-start">
+                                                    <div className="project-id-box h-auto w-full p-1 flex items-center justify-start">
 
                                                         <p className="h-full w-[20%] p-1 font-bold">Project ID : </p>
 
-                                                        <p className="h-full w-[80%] p-1">{project.project_id || "N/A"}</p>
+                                                        <p className="border rounded-lg h-full w-[80%] p-1">{project.project_id || "N/A"}</p>
 
                                                     </div>
 
-                                                    <div className="rounded-lg h-auto w-full p-1 pr-2 flex items-center justify-start">
+                                                    <div className="project-name-box h-auto w-full p-1 pr-2 flex items-center justify-start">
 
                                                         <p className="h-full w-[20%] p-1 font-bold">Project Name - </p>
 
-                                                        <input className="rounded-lg outline-none h-full w-[80%] p-2" type="text" placeholder="Enter Project Name" value={edited_name} onChange={(e) => set_edited_name(e.target.value)} />
+                                                        <input className="border rounded-lg outline-none h-full w-[80%] p-2" type="text" placeholder="Enter Project Name" value={edited_name} onChange={(e) => set_edited_name(e.target.value)} />
 
                                                     </div>
 
-                                                    <div className="rounded-lg h-auto w-full p-1 flex items-center justify-start">
+                                                    <div className="project-description-box h-auto w-full p-1 flex items-center justify-start">
 
                                                         <p className="h-full w-[20%] p-1 font-bold">Project Description - </p>
 
-                                                        <textarea className="rounded-lg outline-none min-h-[5rem] w-[80%] p-2" placeholder="Enter Project Description" value={edited_description} onChange={(e) => set_edited_description(e.target.value)} />
+                                                        <textarea className="border rounded-lg outline-none [field-sizing:content] w-[80%] p-2" placeholder="Enter Project Description" value={edited_description} onChange={(e) => set_edited_description(e.target.value)} />
 
                                                     </div>
 
                                                 </div>
 
-                                                <div className="project-buttons mt-2 flex items-center justify-center gap-2">
+                                                <div className="project-buttons-box mt-2 flex items-center justify-center gap-2">
 
-                                                    <button className="update-project-button border border-[rgba(0,0,250,0.700)] rounded-lg h-auto w-1/2 hover:border-none hover:bg-[rgba(0,0,250,0.200)]" onClick={() => update_project(project, index)}>Update</button>
+                                                    <button className="update-project-button border border-slate-200 rounded-lg h-auto w-1/2 py-1 hover:border-none hover:bg-slate-100" onClick={() => update_project(project, index)}>Update</button>
 
-                                                    <button className="remove-project-button border border-[rgba(0,0,250,0.700)] rounded-lg h-auto w-1/2 hover:border-none hover:bg-[rgba(0,0,250,0.200)]" onClick={() => remove_project(project, index)}>Remove</button>
+                                                    <button className="cancel-edit-button border border-slate-200 rounded-lg h-auto w-1/2 py-1 hover:border-none hover:bg-slate-100" onClick={cancel_edit}>Cancel</button>
 
                                                 </div>
 
@@ -146,39 +150,39 @@ function Projects({ show_dashboard }) {
 
                                             <>
 
-                                                <div className="project rounded-lg h-auto w-full text-start p-5 bg-[rgba(0,0,250,0.200)] cursor-pointer" onClick={() => go_to_dashboard(project.project_name)}>
+                                                <div className="project-box border rounded-lg h-auto w-full text-start p-5 bg-slate-100 cursor-pointer flex flex-col items-center justify-center gap-2" onClick={() => go_to_dashboard(project.project_name)}>
 
-                                                    <div className="h-auto w-full flex items-center justify-start">
+                                                    <div className="project-id-box h-auto w-full flex items-center justify-start">
 
                                                         <p className="h-full w-[25%] p-1 font-bold">Project ID : </p>
 
-                                                        <p className="h-full w-[75%] p-1">{project.project_id || "N/A"}</p>
+                                                        <p className="border rounded-lg h-full w-[75%] p-1">{project.project_id || "N/A"}</p>
 
                                                     </div>
 
-                                                    <div className="h-auto w-full flex items-center justify-start">
+                                                    <div className="project-name-box h-auto w-full flex items-center justify-start">
 
                                                         <p className="h-full w-[25%] p-1 font-bold">Project Name - </p>
 
-                                                        <p className="h-full w-[75%] p-1">{project.project_name || "N/A"}</p>
+                                                        <p className="border rounded-lg h-full w-[75%] p-1">{project.project_name || "N/A"}</p>
 
                                                     </div>
 
-                                                    <div className="h-auto w-full flex items-center justify-start">
+                                                    <div className="project-description-box h-auto w-full flex items-center justify-start">
 
                                                         <p className="h-full w-[25%] p-1 font-bold">Project Description - </p>
 
-                                                        <p className="h-full w-[75%] p-1 whitespace-pre-wrap">{project.project_description || "N/A"}</p>
+                                                        <p className="border rounded-lg h-full w-[75%] p-1 whitespace-pre-wrap">{project.project_description || "N/A"}</p>
 
                                                     </div>
 
                                                 </div>
 
-                                                <div className="project-buttons mt-2 flex items-center justify-center gap-2">
+                                                <div className="project-buttons-box mt-2 flex items-center justify-center gap-2">
 
-                                                    <button className="edit-project-button border border-[rgba(0,0,250,0.700)] rounded-lg h-auto w-1/2 hover:border-none hover:bg-[rgba(0,0,250,0.200)]" onClick={() => edit_project(project, index)}>Edit</button>
+                                                    <button className="edit-project-button border border-slate-200 rounded-lg h-auto w-1/2 py-1 hover:border-none hover:bg-slate-100" onClick={() => edit_project(project, index)}>Edit</button>
 
-                                                    <button className="remove-project-button border border-[rgba(0,0,250,0.700)] rounded-lg h-auto w-1/2 hover:border-none hover:bg-[rgba(0,0,250,0.200)]" onClick={() => remove_project(project, index)}>Remove</button>
+                                                    <button className="remove-project-button border border-slate-200 rounded-lg h-auto w-1/2 py-1 hover:border-none hover:bg-slate-100" onClick={() => remove_project(project, index)}>Remove</button>
 
                                                 </div>
 

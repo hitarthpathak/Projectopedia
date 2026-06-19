@@ -60,13 +60,13 @@ function Home() {
 
     return (
 
-        <div className="h-[80vh] w-full flex items-start justify-center">
+        <div className="home h-[80vh] w-full flex items-start justify-center">
 
             <Show_Data_API.Provider value={{ data, set_data, selected_project, set_selected_project, show_dashboard, show_projects }} >
 
                 <Sidebar />
 
-                <div className="data-box h-full w-[85%] bg-[rgba(0,0,250,0.200)]">
+                <div className="data-box h-full w-[85%] bg-slate-50 rounded-[2rem] border border-slate-200 shadow-sm">
 
                     {loading && <Loading />}
 

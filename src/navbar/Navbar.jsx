@@ -5,7 +5,7 @@ function Navbar() {
 
     return (
 
-        <div className="navbar h-[10vh] w-full px-20 bg-[rgba(0,0,250,0.700)] flex items-center justify-between">
+        <div className="navbar h-[10vh] w-full px-20 bg-gradient-to-r from-sky-50 via-white to-fuchsia-50 border-b border-slate-200 shadow-sm flex items-center justify-between">
 
             <Icon_Box />
 
@@ -17,4 +17,4 @@ function Navbar() {
 
 };
 
-export default Navbar
+export default Navbar;

@@ -12,7 +12,7 @@ function Ticket({ drag_start, ticket_id, ticket_name, ticket_description, ticket
 
         <Link to={`/ticket/${ticket_id}`}>
 
-            <div className="ticket rounded-lg h-auto w-full text-start p-5 bg-[rgba(0,0,250,0.200)]" draggable={true} onDragStart={drag_start}>
+            <div className="ticket rounded-3xl h-auto w-full text-start p-5 bg-white border border-slate-200 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md" draggable={true} onDragStart={drag_start}>
 
                 <p><strong>ID :</strong> {ticket_id || "N/A"}</p>
 

@@ -7,11 +7,11 @@ function Icon_Box() {
 
         <Link to={"/"}>
 
-            <div className="h-[8vh] w-auto flex items-center justify-center gap-7">
+            <div className="icon-box h-[8vh] w-auto flex items-center justify-center gap-7">
 
-                <img className="h-full w-auto" src={Icon} alt="Image Not Available" />
+                <img className="icon h-full w-auto" src={Icon} alt="Image Not Available" />
 
-                <h2 className="text-2xl text-white">Projectopedia</h2>
+                <h2 className="text-2xl text-sky-700 font-semibold">Projectopedia</h2>
 
             </div>
 

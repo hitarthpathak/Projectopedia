@@ -5,7 +5,7 @@ function Sidebar() {
 
     return (
 
-        <div className="sidebar h-full w-[15%] p-4 bg-[rgba(0,0,250,0.400)] flex items-center justify-start flex-col gap-4">
+        <div className="sidebar h-full w-[15%] p-4 bg-sky-50 border border-slate-200 rounded-[2rem] shadow-sm flex items-center justify-start flex-col gap-4">
 
             <Dashboard_Button />
 

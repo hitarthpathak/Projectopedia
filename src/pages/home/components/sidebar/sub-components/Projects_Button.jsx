@@ -9,7 +9,7 @@ function Projects_Button() {
 
         <>
 
-            <button className="projects-button border border-[rgba(0,0,250,0.700)] rounded-lg hover:bg-[rgba(0,0,250,0.200)] hover:border-none h-auto w-full p-4" onClick={show_projects}>Projects</button>
+            <button className="projects-button border border-slate-200 bg-white rounded-3xl hover:bg-sky-50 hover:border-sky-200 h-auto w-full p-4 transition" onClick={show_projects}>Projects</button>
 
         </>
 

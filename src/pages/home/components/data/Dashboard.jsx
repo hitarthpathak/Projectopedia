@@ -40,9 +40,9 @@ function Dashboard() {
 
             <div className="dashboard-box h-full w-full flex items-center justify-center flex-col">
 
-                <div className="project-info-box h-auto w-full p-4 flex items-start justify-between">
+                <div className="project-info-box h-auto w-full bg-white border border-slate-200 rounded-3xl shadow-sm p-4 flex items-start justify-between">
 
-                    <div className="project-info-box-details h-auto w-[50%] flex items-center justify-center flex-col">
+                    <div className="project-info-box-details h-full w-auto flex items-center justify-center flex-col text-slate-900">
 
                         <p className="h-auto w-full text-lg font-bold">{selected_project_data ? selected_project_data.project_name.toUpperCase() : "NO PROJECT SELECTED!"}</p>
 
@@ -50,9 +50,9 @@ function Dashboard() {
 
                     <div className="project-info-box-options h-auto w-[50%] flex items-center justify-end gap-3">
 
-                        <button className="add-new-ticket-button border border-[rgba(0,0,250,0.700)] rounded-lg h-auto w-auto p-2 hover:border-none hover:bg-[rgba(0,0,250,0.200)] disabled:cursor-not-allowed" onClick={open_ticket_portal} disabled={!selected_project_data}>Add New Ticket</button>
+                        <button className="add-new-ticket-button border border-emerald-500 bg-emerald-500 text-white rounded-3xl h-auto w-auto px-4 py-2 shadow-sm hover:bg-emerald-600 disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-400" onClick={open_ticket_portal} disabled={!selected_project_data}>Add New Ticket</button>
 
-                        <select className="project-selection rounded-lg outline-none h-auto w-auto p-3 bg-[rgba(0,0,250,0.300)] cursor-pointer" value={selected_project_data ? selected_project_data.project_name : "NO PROJECT SELECTED!"} onChange={(e) => set_selected_project(e.target.value)}>
+                        <select className="project-selection rounded-3xl outline-none h-auto w-auto p-3 bg-slate-100 cursor-pointer border border-slate-200" value={selected_project_data ? selected_project_data.project_name : "NO PROJECT SELECTED!"} onChange={(e) => set_selected_project(e.target.value)}>
 
                             {!selected_project_data && <option>NO PROJECT SELECTED!</option>}
 
@@ -85,11 +85,11 @@ function Dashboard() {
 
                 }
 
-                <hr className="border-[rgba(0,0,250,0.700)] h-auto w-full" />
+                <hr className="border-slate-200 h-auto w-full" />
 
-                <input className="search-ticket-input rounded-lg h-auto w-[99%] m-2 p-2 outline-none" placeholder="Search Tickets" type="text" onChange={(e) => set_query(e.target.value)} />
+                <input className="search-ticket-input rounded-3xl h-auto w-[99%] m-2 px-3 py-2 outline-none bg-slate-100 border border-slate-200 shadow-sm" placeholder="Search Tickets" type="text" onChange={(e) => set_query(e.target.value)} />
 
-                <hr className="border-[rgba(0,0,250,0.700)] h-auto w-full" />
+                <hr className="border-slate-200 h-auto w-full" />
 
                 <div className="project-status-box h-full w-full p-4 flex items-start justify-start overflow-auto gap-4">
 

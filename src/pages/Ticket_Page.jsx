@@ -59,6 +59,14 @@ function Ticket_Page() {
         set_is_editing(false);
     };
 
+    function cancel_edit() {
+        set_is_editing(false);
+        set_edited_name(ticket?.ticket_name || "");
+        set_edited_description(ticket?.ticket_description || "");
+        set_edited_priority(ticket?.ticket_priority || "");
+        set_edited_deadline(ticket?.ticket_deadline || "");
+    };
+
     function remove_deadline() {
         set_edited_deadline("");
     };
@@ -79,7 +87,7 @@ function Ticket_Page() {
 
         return (
 
-            <h1 className="h-[80vh] w-full bg-[rgba(0,0,250,0.200)] flex items-center justify-center text-3xl">Ticket ({ticket_id}) Is Not Found!</h1>
+            <h1 className="ticket-not-found h-[80vh] w-full bg-slate-50 flex items-center justify-center text-3xl">Ticket ({ticket_id}) Is Not Found!</h1>
 
         );
 
@@ -87,11 +95,15 @@ function Ticket_Page() {
 
     return (
 
-        <div className="ticket-page overflow-auto h-[80vh] w-full p-5 bg-[rgba(0,0,250,0.200)]">
+        <div className="ticket-page overflow-auto h-[80vh] w-full p-5 bg-slate-50">
+
+            <button className="border border-slate-200 rounded-lg h-auto w-auto p-3 hover:border-none hover:bg-slate-100" onClick={() => navigate("/")}>Back To Dashboard</button>
+
+            <hr className="border-slate-200 h-auto w-full my-5" />
 
             <h1 className="text-2xl text-center font-bold">Ticket Page</h1>
 
-            <hr className="border-[rgba(0,0,250,0.700)] h-auto w-full my-5" />
+            <hr className="border-slate-200 h-auto w-full my-5" />
 
             {
 
@@ -101,45 +113,45 @@ function Ticket_Page() {
 
                     (
 
-                        <div className="h-auto w-full flex items-center justify-start gap-2 flex-col">
+                        <div className="ticket-box h-auto w-full flex items-center justify-start gap-2 flex-col">
 
-                            <div className="rounded-lg h-auto w-full bg-[rgba(0,0,250,0.200)] p-1 flex items-center justify-start">
+                            <div className="ticket-id-box h-auto w-full bg-slate-50 p-1 flex items-center justify-start">
 
                                 <p className="h-full w-[20%] p-2 font-bold">Ticket ID : </p>
 
-                                <p className="h-full w-[80%] p-2">{ticket_id || "N/A"}</p>
+                                <p className="border rounded-lg h-full w-[80%] p-2">{ticket_id || "N/A"}</p>
 
                             </div>
 
-                            <div className="rounded-lg h-auto w-full bg-[rgba(0,0,250,0.200)] p-1 pr-2 flex items-center justify-start">
+                            <div className="ticket-name-box h-auto w-full bg-slate-50 p-1 pr-2 flex items-center justify-start">
 
                                 <p className="h-full w-[20%] p-2 font-bold">Ticket Name - </p>
 
-                                <input className="rounded-lg outline-none h-full w-[80%] p-2" type="text" placeholder="Enter Ticket Name" value={edited_name} onChange={(e) => set_edited_name(e.target.value)} />
+                                <input className="border rounded-lg outline-none h-full w-[80%] p-2" type="text" placeholder="Enter Ticket Name" value={edited_name} onChange={(e) => set_edited_name(e.target.value)} />
 
                             </div>
 
-                            <div className="rounded-lg h-auto w-full bg-[rgba(0,0,250,0.200)] p-2 flex items-center justify-start">
+                            <div className="ticket-description-box h-auto w-full bg-slate-50 p-2 flex items-center justify-start">
 
                                 <p className="h-full w-[20%] p-2 font-bold">Ticket Description - </p>
 
-                                <textarea className="rounded-lg outline-none min-h-[5rem] w-[80%] p-2" placeholder="Enter Ticket Description" value={edited_description} onChange={(e) => set_edited_description(e.target.value)} />
+                                <textarea className="border rounded-lg outline-none [field-sizing:content] w-[80%] p-2" placeholder="Enter Ticket Description" value={edited_description} onChange={(e) => set_edited_description(e.target.value)} />
 
                             </div>
 
-                            <div className="rounded-lg h-auto w-full bg-[rgba(0,0,250,0.200)] p-1 flex items-center justify-start">
+                            <div className="ticket-status-box h-auto w-full bg-slate-50 p-1 flex items-center justify-start">
 
                                 <p className="h-full w-[20%] p-2 font-bold">Ticket Status : </p>
 
-                                <p className="h-full w-[80%] p-2">{ticket.ticket_status || "N/A"}</p>
+                                <p className="border rounded-lg h-full w-[80%] p-2">{ticket.ticket_status || "N/A"}</p>
 
                             </div>
 
-                            <div className="rounded-lg h-auto w-full bg-[rgba(0,0,250,0.200)] p-2 flex items-center justify-start">
+                            <div className="ticket-priority-box h-auto w-full bg-slate-50 p-2 flex items-center justify-start">
 
                                 <p className="h-full w-[20%] p-2 font-bold">Ticket Priority : </p>
 
-                                <select className="rounded-lg outline-none h-full w-auto p-2" value={edited_priority} onChange={(e) => set_edited_priority(e.target.value)}>
+                                <select className="border rounded-lg outline-none h-full w-auto p-2" value={edited_priority} onChange={(e) => set_edited_priority(e.target.value)}>
 
                                     <option value="">Please Select Priority</option>
 
@@ -153,15 +165,15 @@ function Ticket_Page() {
 
                             </div>
 
-                            <div className="rounded-lg h-auto w-full bg-[rgba(0,0,250,0.200)] p-1 flex items-center justify-start">
+                            <div className="ticket-deadline-box h-auto w-full bg-slate-50 p-1 flex items-center justify-start">
 
                                 <p className="h-full w-[20%] p-2 font-bold">Ticket Deadline : </p>
 
                                 <div className="h-full w-[80%] py-2 flex items-center justify-start gap-3">
 
-                                    <input className="rounded-lg outline-none h-full w-auto p-2" type="date" value={edited_deadline} onChange={(e) => set_edited_deadline(e.target.value)} />
+                                    <input className="border rounded-lg outline-none h-full w-auto p-2" type="date" value={edited_deadline} onChange={(e) => set_edited_deadline(e.target.value)} />
 
-                                    <button className="border border-[rgba(0,0,250,0.700)] rounded-lg h-full w-auto p-2 hover:border-none hover:bg-[rgba(0,0,250,0.200)]" onClick={remove_deadline} disabled={!edited_deadline}>Remove Deadline</button>
+                                    <button className="border border-slate-200 rounded-lg h-full w-auto p-2 cursor-pointer hover:border-none hover:bg-slate-100" onClick={remove_deadline} disabled={!edited_deadline}>Remove Deadline</button>
 
                                 </div>
 
@@ -169,11 +181,11 @@ function Ticket_Page() {
 
                             <hr style={{ margin: "1rem 0" }} />
 
-                            <div className="h-auto w-full flex items-center justify-center gap-5">
+                            <div className="ticket-buttons-box h-auto w-full flex items-center justify-center gap-5">
 
-                                <button className="rounded-lg h-auto w-auto p-3 bg-green-500" onClick={update_ticket}>Update Ticket</button>
+                                <button className="border rounded-lg h-auto w-auto p-3 bg-emerald-500" onClick={update_ticket}>Update Ticket</button>
 
-                                <button className="rounded-lg h-auto w-auto p-3 bg-red-500" onClick={delete_ticket}>Delete Ticket</button>
+                                <button className="border rounded-lg h-auto w-auto p-3 bg-rose-500" onClick={cancel_edit}>Cancel Edit</button>
 
                             </div>
 
@@ -185,63 +197,63 @@ function Ticket_Page() {
 
                     (
 
-                        <div className="h-auto w-full flex items-center justify-start gap-2 flex-col">
+                        <div className="ticket-box h-auto w-full flex items-center justify-start gap-2 flex-col">
 
-                            <div className="rounded-lg h-auto w-full bg-[rgba(0,0,250,0.200)] p-1 flex items-center justify-start">
+                            <div className="ticket-id-box h-auto w-full bg-slate-50 p-1 flex items-center justify-start">
 
                                 <p className="h-full w-[20%] p-2 font-bold">Ticket ID : </p>
 
-                                <p className="h-full w-[80%] p-2">{ticket_id || "N/A"}</p>
+                                <p className="border rounded-lg h-full w-[80%] p-2">{ticket_id || "N/A"}</p>
 
                             </div>
 
-                            <div className="rounded-lg h-auto w-full bg-[rgba(0,0,250,0.200)] p-1 flex items-center justify-start">
+                            <div className="ticket-name-box h-auto w-full bg-slate-50 p-1 flex items-center justify-start">
 
                                 <p className="h-full w-[20%] p-2 font-bold">Ticket Name : </p>
 
-                                <p className="h-full w-[80%] p-2">{ticket.ticket_name || "N/A"}</p>
+                                <p className="border rounded-lg h-full w-[80%] p-2">{ticket.ticket_name || "N/A"}</p>
 
                             </div>
 
-                            <div className="rounded-lg h-auto w-full bg-[rgba(0,0,250,0.200)] p-1 flex items-center justify-start">
+                            <div className="ticket-description-box h-auto w-full bg-slate-50 p-1 flex items-center justify-start">
 
                                 <p className="h-full w-[20%] p-2 font-bold">Ticket Description : </p>
 
-                                <p className="h-full w-[80%] p-2 whitespace-pre-wrap">{ticket.ticket_description || "N/A"}</p>
+                                <p className="border rounded-lg h-full w-[80%] p-2 whitespace-pre-wrap">{ticket.ticket_description || "N/A"}</p>
 
                             </div>
 
-                            <div className="rounded-lg h-auto w-full bg-[rgba(0,0,250,0.200)] p-1 flex items-center justify-start">
+                            <div className="ticket-status-box h-auto w-full bg-slate-50 p-1 flex items-center justify-start">
 
                                 <p className="h-full w-[20%] p-2 font-bold">Ticket Status : </p>
 
-                                <p className="h-full w-[80%] p-2">{ticket.ticket_status || "N/A"}</p>
+                                <p className="border rounded-lg h-full w-[80%] p-2">{ticket.ticket_status || "N/A"}</p>
 
                             </div>
 
-                            <div className="rounded-lg h-auto w-full bg-[rgba(0,0,250,0.200)] p-1 flex items-center justify-start">
+                            <div className="ticket-priority-box h-auto w-full bg-slate-50 p-1 flex items-center justify-start">
 
                                 <p className="h-full w-[20%] p-2 font-bold">Ticket Priority : </p>
 
-                                <p className="h-full w-[80%] p-2" style={{ color: priority_colors[ticket.ticket_priority] }}>{ticket.ticket_priority || "N/A"}</p>
+                                <p className="border rounded-lg h-full w-[80%] p-2" style={{ color: priority_colors[ticket.ticket_priority] }}>{ticket.ticket_priority || "N/A"}</p>
 
                             </div>
 
-                            <div className="rounded-lg h-auto w-full bg-[rgba(0,0,250,0.200)] p-1 flex items-center justify-start">
+                            <div className="ticket-deadline-box h-auto w-full bg-slate-50 p-1 flex items-center justify-start">
 
                                 <p className="h-full w-[20%] p-2 font-bold">Ticket Deadline : </p>
 
-                                <p className="h-full w-[80%] p-2">{ticket.ticket_deadline || "N/A"}</p>
+                                <p className="border rounded-lg h-full w-[80%] p-2">{ticket.ticket_deadline || "N/A"}</p>
 
                             </div>
 
-                            <hr className="border-[rgba(0,0,250,0.700)] h-auto w-full my-5" />
+                            <hr className="border-slate-200 h-auto w-full my-5" />
 
-                            <div className="h-auto w-full flex items-center justify-center gap-5">
+                            <div className="ticket-buttons-box h-auto w-full flex items-center justify-center gap-5">
 
-                                <button className="rounded-lg h-auto w-auto p-3 bg-green-500" onClick={edit_ticket}>Edit Ticket</button>
+                                <button className="border rounded-lg h-auto w-auto p-3 bg-emerald-500" onClick={edit_ticket}>Edit Ticket</button>
 
-                                <button className="rounded-lg h-auto w-auto p-3 bg-red-500" onClick={delete_ticket}>Delete Ticket</button>
+                                <button className="border rounded-lg h-auto w-auto p-3 bg-rose-500" onClick={delete_ticket}>Delete Ticket</button>
 
                             </div>
 

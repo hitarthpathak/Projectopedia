@@ -4,11 +4,11 @@ function Footer() {
 
     return (
 
-        <div className="footer h-[10vh] w-full px-20 bg-[rgba(0,0,250,0.700)] flex items-center justify-center">
+        <div className="footer h-[10vh] w-full px-20 bg-slate-50 border-t border-slate-200 flex items-center justify-center">
 
             <Link to="https://hitarthpathak.github.io/" target="_blank">
 
-                <p className="hover:underline hover:text-white">© Hitarth Pathak</p>
+                <p className="creator text-slate-500 hover:underline hover:text-slate-900">© Hitarth Pathak</p>
 
             </Link>
 

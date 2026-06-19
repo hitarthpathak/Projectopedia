@@ -27,7 +27,11 @@ function Search() {
 
     return (
 
-        <div className="search-page overflow-auto h-[80vh] w-full p-5 bg-[rgba(0,0,250,0.200)]">
+        <div className="search overflow-auto h-[80vh] w-full p-5 bg-slate-50">
+
+            <button className="back-to-dashboard-button border border-slate-200 rounded-lg h-auto w-auto p-3 hover:border-none hover:bg-slate-100" onClick={() => navigate("/")}>Back To Dashboard</button>
+
+            <hr className="border-slate-200 h-auto w-full my-5" />
 
             <h1 className="mb-3">Search Results : {searched_projects.length}</h1>
 
@@ -53,9 +57,9 @@ function Search() {
 
                                 return (
 
-                                    <div className="project rounded-lg h-auto w-full text-start p-5 bg-[rgba(0,0,250,0.200)] cursor-pointer" onClick={() => go_to_dashboard(project.project_name)} key={project.project_id}>
+                                    <div className="project rounded-3xl h-auto w-full text-start p-5 bg-white border border-slate-200 shadow-sm cursor-pointer hover:bg-sky-50 transition" onClick={() => go_to_dashboard(project.project_name)} key={project.project_id}>
 
-                                        <div className="h-auto w-full flex items-center justify-start">
+                                        <div className="project-id-box h-auto w-full flex items-center justify-start">
 
                                             <p className="h-full w-[25%] p-1 font-bold">Project ID : </p>
 
@@ -63,7 +67,7 @@ function Search() {
 
                                         </div>
 
-                                        <div className="h-auto w-full flex items-center justify-start">
+                                        <div className="project-name-box h-auto w-full flex items-center justify-start">
 
                                             <p className="h-full w-[25%] p-1 font-bold">Project Name - </p>
 
@@ -71,7 +75,7 @@ function Search() {
 
                                         </div>
 
-                                        <div className="h-auto w-full flex items-center justify-start">
+                                        <div className="project-description-box h-auto w-full flex items-center justify-start">
 
                                             <p className="h-full w-[25%] p-1 font-bold">Project Description - </p>
 
